@@ -1,0 +1,47 @@
+import { defineConfig } from 'vitepress'
+
+// https://vitepress.dev/reference/site-config
+export default defineConfig({
+  ignoreDeadLinks: true,
+  title: "SBS",
+  description: "Security Benchmark for Salesforce",
+  appearance: 'dark',
+  head: [
+    [
+      'link',
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600&display=swap' }
+    ],
+    ['link', { rel: 'icon', href: '/fav_icon.png' }]
+  ],
+  themeConfig: {
+    // https://vitepress.dev/reference/default-theme-config
+    logo: '/awaf-logo.svg',
+    outline: [2, 3], // Show h2 and h3 in the right sidebar
+    nav: [
+      { text: 'Home', link: '/' },
+      { text: 'Documentation', link: '/introduction' }
+    ],
+
+    sidebar: [
+      {
+        text: 'Getting Started',
+        items: [
+          { text: 'Introduction', link: '/introduction' },
+          { text: 'Controls At-a-Glance', link: '/controls-at-a-glance' },
+          { text: 'About', link: '/about' }
+        ]
+      },
+      {
+        text: 'Benchmark',
+        items: [
+          { text: 'Foundations', link: '/benchmark/foundations' },
+          { text: 'Permissions', link: '/benchmark/permissions' },
+          { text: 'OAuth Security', link: '/benchmark/oauth-security' },
+          { text: 'Integrations', link: '/benchmark/integrations' },
+          { text: 'Code Security', link: '/benchmark/code-security' }
+        ]
+      },
+
+    ]
+  }
+})

@@ -1,0 +1,366 @@
+/**
+ * Font Configuration
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --vp-font-family-mono: 'Source Code Pro', ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
+}
+
+/* Use monospace only for code blocks and inline code */
+code, pre, .vp-code-group code {
+  font-family: var(--vp-font-family-mono);
+}
+
+/**
+ * Customize default theme styling by overriding CSS variables:
+ * https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
+ */
+
+/**
+ * Colors
+ *
+ * Each colors have exact same color scale system with 3 levels of solid
+ * colors with different brightness, and 1 soft color.
+ *
+ * - `XXX-1`: The most solid color used mainly for colored text. It must
+ *   satisfy the contrast ratio against when used on top of `XXX-soft`.
+ *
+ * - `XXX-2`: The color used mainly for hover state of the button.
+ *
+ * - `XXX-3`: The color for solid background, such as bg color of the button.
+ *   It must satisfy the contrast ratio with pure white (#ffffff) text on
+ *   top of it.
+ *
+ * - `XXX-soft`: The color used for subtle background such as custom container
+ *   or badges. It must satisfy the contrast ratio when putting `XXX-1` colors
+ *   on top of it.
+ *
+ *   The soft color must be semi transparent alpha channel. This is crucial
+ *   because it allows adding multiple "soft" colors on top of each other
+ *   to create a accent, such as when having inline code block inside
+ *   custom containers.
+ *
+ * - `default`: The color used purely for subtle indication without any
+ *   special meanings attached to it such as bg color for menu hover state.
+ *
+ * - `brand`: Used for primary brand colors, such as link text, button with
+ *   brand theme, etc.
+ *
+ * - `tip`: Used to indicate useful information. The default theme uses the
+ *   brand color for this by default.
+ *
+ * - `warning`: Used to indicate warning to the users. Used in custom
+ *   container, badges, etc.
+ *
+ * - `danger`: Used to show error, or dangerous message to the users. Used
+ *   in custom container, badges, etc.
+ * -------------------------------------------------------------------------- */
+
+:root {
+  /* Tomato red brand colors matching landing page */
+  --vp-c-brand-1: #ff6a5a;
+  --vp-c-brand-2: #ff5242;
+  --vp-c-brand-3: #ff3d2a;
+  --vp-c-brand-soft: rgba(255, 106, 90, 0.14);
+
+  --vp-c-default-1: var(--vp-c-gray-1);
+  --vp-c-default-2: var(--vp-c-gray-2);
+  --vp-c-default-3: var(--vp-c-gray-3);
+  --vp-c-default-soft: var(--vp-c-gray-soft);
+
+  --vp-c-tip-1: var(--vp-c-brand-1);
+  --vp-c-tip-2: var(--vp-c-brand-2);
+  --vp-c-tip-3: var(--vp-c-brand-3);
+  --vp-c-tip-soft: var(--vp-c-brand-soft);
+
+  --vp-c-warning-1: var(--vp-c-yellow-1);
+  --vp-c-warning-2: var(--vp-c-yellow-2);
+  --vp-c-warning-3: var(--vp-c-yellow-3);
+  --vp-c-warning-soft: var(--vp-c-yellow-soft);
+
+  --vp-c-danger-1: var(--vp-c-red-1);
+  --vp-c-danger-2: var(--vp-c-red-2);
+  --vp-c-danger-3: var(--vp-c-red-3);
+  --vp-c-danger-soft: var(--vp-c-red-soft);
+}
+
+/**
+ * Component: Button
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-text: var(--vp-c-white);
+  --vp-button-brand-bg: var(--vp-c-brand-1);
+  --vp-button-brand-hover-border: transparent;
+  --vp-button-brand-hover-text: var(--vp-c-white);
+  --vp-button-brand-hover-bg: var(--vp-c-brand-2);
+  --vp-button-brand-active-border: transparent;
+  --vp-button-brand-active-text: var(--vp-c-white);
+  --vp-button-brand-active-bg: var(--vp-c-brand-1);
+}
+
+/**
+ * Component: Home
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(
+    120deg,
+    #ff6a5a 30%,
+    #ff3d2a
+  );
+
+  --vp-home-hero-image-background-image: none;
+  --vp-home-hero-image-filter: none;
+}
+
+/* Hero title adjustments */
+.VPHero .text {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.VPHero .tagline {
+  color: #b3b3b3;
+  font-size: clamp(1.125rem, 3vw, 1.375rem);
+  line-height: 1.6;
+  max-width: 800px;
+}
+
+@media (max-width: 639px) {
+  .VPHero .text {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+  }
+}
+
+/**
+ * Component: Custom Block
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-custom-block-tip-border: transparent;
+  --vp-custom-block-tip-text: var(--vp-c-text-1);
+  --vp-custom-block-tip-bg: var(--vp-c-brand-soft);
+  --vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
+}
+
+/**
+ * Component: Algolia
+ * -------------------------------------------------------------------------- */
+
+.DocSearch {
+  --docsearch-primary-color: var(--vp-c-brand-1) !important;
+}
+
+/**
+ * Component: Pencil Highlight
+ * -------------------------------------------------------------------------- */
+
+.pencil-highlight {
+  background: linear-gradient(
+    104deg,
+    transparent 5%,
+    rgba(0, 0, 0, 0.1) 10%,
+    rgba(0, 0, 0, 0.15) 50%,
+    rgba(0, 0, 0, 0.1) 90%,
+    transparent 95%
+  );
+  background-size: 100% 60%;
+  background-position: 0 95%;
+  background-repeat: no-repeat;
+  padding: 0.05em 0.2em;
+  border-radius: 6px;
+  transform: rotate(-0.5deg);
+  display: inline;
+}
+
+/* Alternative pencil highlight with more texture */
+.pencil-highlight-alt {
+  position: relative;
+  display: inline;
+  color: inherit;
+}
+
+.pencil-highlight-alt::before {
+  content: '';
+  position: absolute;
+  left: -0.15em;
+  right: -0.15em;
+  top: 0.15em;
+  bottom: 0.05em;
+  background: 
+    radial-gradient(ellipse at center, rgba(0, 0, 0, 0.15) 0%, transparent 50%),
+    linear-gradient(95deg, 
+      transparent 15%,
+      rgba(0, 0, 0, 0.08) 20%,
+      rgba(0, 0, 0, 0.12) 35%,
+      rgba(0, 0, 0, 0.1) 50%,
+      rgba(0, 0, 0, 0.12) 65%,
+      rgba(0, 0, 0, 0.08) 80%,
+      transparent 85%
+    );
+  transform: rotate(-0.8deg) skew(-3deg, 0deg);
+  border-radius: 60% 25% 50% 35%;
+  z-index: -1;
+}
+
+/**
+ * Dark Theme Overrides - Match landing page aesthetic
+ * -------------------------------------------------------------------------- */
+
+.dark {
+  /* Dark backgrounds matching landing page */
+  --vp-c-bg: #0f0f0f;
+  --vp-c-bg-alt: #1a1a1a;
+  --vp-c-bg-elv: #1a1a1a;
+  --vp-c-bg-soft: #2d2d30;
+  
+  /* Text colors */
+  --vp-c-text-1: #ffffff;
+  --vp-c-text-2: #b3b3b3;
+  --vp-c-text-3: #8a8a8a;
+  
+  /* Border colors */
+  --vp-c-border: rgba(255, 255, 255, 0.1);
+  --vp-c-divider: rgba(255, 255, 255, 0.08);
+  --vp-c-gutter: rgba(255, 255, 255, 0.04);
+  
+  /* Component backgrounds */
+  --vp-sidebar-bg-color: #0f0f0f;
+  --vp-nav-bg-color: #0f0f0f;
+}
+
+/* Make nav bar darker and more prominent */
+.dark .VPNav {
+  background-color: #0f0f0f;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Sidebar styling */
+.dark .VPSidebar {
+  background-color: #0f0f0f;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Code blocks with slightly lighter background */
+.dark .vp-code-group,
+.dark div[class*='language-'] {
+  background-color: #1a1a1a;
+}
+
+/* Tables */
+.dark table {
+  background-color: transparent;
+}
+
+.dark tr {
+  background-color: transparent;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark tr:nth-child(2n) {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Links with tomato red */
+.dark a {
+  color: #ff6a5a;
+}
+
+.dark a:hover {
+  color: #ff5242;
+}
+
+/* Custom containers */
+.dark .custom-block {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Buttons */
+.dark .VPButton.brand {
+  background-color: #ff6a5a;
+  border-color: #ff6a5a;
+  color: #ffffff;
+}
+
+.dark .VPButton.brand:hover {
+  background-color: #ff5242;
+  border-color: #ff5242;
+}
+
+/* Search box */
+.dark .DocSearch-Button {
+  background-color: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/**
+ * Typography Improvements
+ * -------------------------------------------------------------------------- */
+
+/* Better readability for body text in dark mode */
+.dark .vp-doc p {
+  line-height: 1.7;
+  color: #b3b3b3;
+}
+
+.dark .vp-doc strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Headings with better contrast */
+.dark .vp-doc h1,
+.dark .vp-doc h2,
+.dark .vp-doc h3,
+.dark .vp-doc h4 {
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* Subtle separator for h2 */
+.dark .vp-doc h2 {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.5rem;
+  margin-top: 3rem;
+}
+
+/* Lists with better spacing */
+.dark .vp-doc ul,
+.dark .vp-doc ol {
+  color: #b3b3b3;
+}
+
+.dark .vp-doc li {
+  line-height: 1.7;
+  margin: 0.5rem 0;
+}
+
+/* Inline code with subtle background */
+.dark .vp-doc code {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #ff6a5a;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* Code blocks */
+.dark .vp-doc pre code {
+  color: #e5e5e5;
+  background-color: transparent;
+}
+
+/* Blockquotes */
+.dark .vp-doc blockquote {
+  border-left: 3px solid #ff6a5a;
+  background-color: rgba(255, 106, 90, 0.05);
+  color: #b3b3b3;
+}
+

@@ -1,0 +1,68 @@
+## Integrations
+
+This section defines controls related to outbound connectivity from Salesforce to external systems, including Remote Site Settings and Named Credentials. These controls ensure that organizations maintain visibility and governance over approved external endpoints, authentication mechanisms, and data flows initiated by Salesforce, reducing the risk of unauthorized data transmission, dependency on untrusted services, and configuration drift in integration pathways.
+
+### SBS-INT-001: Inventory and Justification of Remote Site Settings
+
+**Control Statement:** Organizations must maintain an authoritative inventory of all Remote Site Settings and document a business justification for each endpoint approved for Apex HTTP callouts.
+
+**Description:**  
+All Remote Site Settings configured in Salesforce must be recorded in the organization’s system of record along with a clear business justification demonstrating why the endpoint is required and trusted for use in Apex HTTP callouts.
+
+**Rationale:**  
+Remote Site Settings authorize outbound communication from Salesforce to external endpoints; without documented justification, unvetted or insecure endpoints may expose the organization to data leakage, dependency risks, or communication with untrusted services.
+
+**Audit Procedure:**  
+1. Enumerate all Remote Site Settings via Salesforce Setup or the Metadata API.  
+2. Retrieve the organization’s system of record for approved outbound endpoints.  
+3. Compare the Salesforce list to the system of record to confirm each Remote Site Setting is documented.  
+4. Verify that each documented Remote Site Setting includes a clear business justification.  
+5. Flag any Remote Site Settings missing from the inventory or lacking justification as noncompliant.
+
+**Remediation:**  
+1. Add all undocumented Remote Site Settings to the system of record.  
+2. Document a valid business justification for each endpoint.  
+3. Remove or disable any Remote Site Settings that cannot be justified.  
+4. Implement a recurring process to reconcile Remote Site Settings with the system of record.
+
+**Default Value:**  
+Salesforce does not require or maintain business justification for Remote Site Settings and does not enforce an external inventory.
+
+**References:**  
+- Salesforce Developer Guide: Apex Callouts and Remote Site Settings  
+- NIST SP 800-53: AC-4 Information Flow Enforcement  
+- CIS Controls v8: Control 12 – Network Infrastructure Management
+
+### SBS-INT-002: Inventory and Justification of Named Credentials
+
+**Control Statement:** Organizations must maintain an authoritative inventory of all Named Credentials and document a business justification for each external endpoint and authentication configuration approved for use in Salesforce.
+
+**Description:**  
+All Named Credentials defined in Salesforce—regardless of authentication type or use case—must be recorded in the organization’s system of record, including the endpoint URL, authentication model, and a clear business justification demonstrating why the connection is required and trusted for Apex callouts, External Services, or external data access.
+
+**Rationale:**  
+Named Credentials control authenticated outbound communication from Salesforce to external systems; undocumented or unjustified configurations may expose the organization to data leakage, unauthorized integrations, or reliance on insecure or untrusted endpoints.
+
+**Audit Procedure:**  
+1. Enumerate all Named Credentials using Salesforce Setup, Metadata API, Tooling API, or Connect REST API.  
+2. Retrieve the organization’s system of record for approved external endpoints and integration credentials.  
+3. Compare the Salesforce list to the system of record to confirm all Named Credentials are documented.  
+4. Verify that each documented Named Credential includes:  
+   - The external endpoint URL  
+   - The authentication type (named principal or per-user)  
+   - The business justification for the integration  
+5. Flag any Named Credentials missing from the inventory or lacking justification as noncompliant.
+
+**Remediation:**  
+1. Add any undocumented Named Credentials to the system of record.  
+2. Document a valid business justification for each Named Credential.  
+3. Remove, disable, or reconfigure any Named Credentials that cannot be justified or that reference untrusted endpoints.  
+4. Establish a recurring reconciliation process to ensure Named Credentials remain fully inventoried and justified.
+
+**Default Value:**  
+Salesforce does not maintain or enforce an external inventory or business justification for Named Credentials.
+
+**References:**  
+- Salesforce Developer Guide: Named Credentials  
+- NIST SP 800-53: AC-4 Information Flow Enforcement  
+- CIS Controls v8: Control 12 – Network Infrastructure Management
