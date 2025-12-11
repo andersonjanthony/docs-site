@@ -183,7 +183,16 @@ def main():
     script_dir = Path(__file__).parent
     benchmark_dir = script_dir.parent / 'benchmark'
     output_file = script_dir.parent / 'sbs-controls.xml'
+    version_file = script_dir.parent / 'VERSION'
     
+    # Read version from VERSION file
+    if version_file.exists():
+        version = version_file.read_text().strip()
+    else:
+        version = "0.0.0"
+        print("WARNING: VERSION file not found, using 0.0.0")
+    
+    print(f"SBS Version: {version}")
     print(f"Scanning for controls in: {benchmark_dir}")
     
     # Parse all markdown files
@@ -200,7 +209,7 @@ def main():
     
     # Generate XML
     print("Generating XML...")
-    xml_root = generate_xml(all_controls, version="1.0.0")
+    xml_root = generate_xml(all_controls, version=version)
     
     # Write to file
     xml_string = prettify_xml(xml_root)

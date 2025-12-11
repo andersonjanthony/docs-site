@@ -47,3 +47,28 @@ Each SBS control is written in a **prescriptive, binary format** designed to det
 - Organizations may choose to implement compensating controls, but these do not replace formal compliance unless explicitly documented and accepted by their internal security authority.
 
 This format ensures that SBS remains consistent, measurable, and suitable for auditing, consulting, and automated scanning tools.
+
+## 1.4 Versioning
+
+SBS uses a three-part version number: **MAJOR.MINOR.REVISION**
+
+**MAJOR** — Increased when controls are added, removed, renumbered, recategorized, or when a control's requirement meaningfully changes. These are breaking changes that may affect compliance status.
+
+**MINOR** — Increased when supporting text (description, audit steps, remediation, rationale, references) changes without altering the control requirement. Organizations remain compliant, but implementation guidance has improved.
+
+**REVISION** — Increased for purely editorial updates such as typos, formatting, or link fixes. No substantive changes to controls or guidance.
+
+Once a version is published, it is never modified. Any change requires incrementing one of the version segments.
+
+### Draft Phase (0.x.y)
+
+During active development, MAJOR remains 0, even if controls are added, removed, or significantly changed. All drafts evolve within 0.MINOR.REVISION.
+
+The first stable public release becomes **1.0.0**.
+
+**Examples:**
+- `0.3.0` — Draft with added/removed controls
+- `0.3.1` — Editorial fixes during draft
+- `1.0.0` — First official SBS release
+- `1.1.0` — Updated descriptions and audit steps
+- `2.0.0` — Added new controls

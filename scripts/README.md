@@ -47,15 +47,24 @@ The script generates an XML file with the following structure:
 </sbs_benchmark>
 ```
 
+### Version Management
+
+The current SBS version is stored in the `VERSION` file at the project root. This file contains a single line with the version number (e.g., `0.1.0`).
+
+The XML generation script automatically reads from this file, ensuring the version is always synchronized across:
+- The VERSION file (source of truth)
+- Generated XML metadata
+- Git release tags
+
+**To release a new version:**
+
+1. Update the `VERSION` file with the new version number
+2. Commit the change: `git commit -am "Release v0.1.0"`
+3. Create and push a tag: `git tag v0.1.0 && git push origin v0.1.0`
+
 ### Automated Generation
 
-The XML file is automatically generated when a new version tag is pushed to GitHub:
-
-```bash
-# Create and push a version tag
-git tag v1.0.0
-git push origin v1.0.0
-```
+The XML file is automatically generated when a version tag is pushed to GitHub. The GitHub Action reads the version from the tag name.
 
 The GitHub Action (`.github/workflows/release.yml`) will:
 1. Run the script to generate the XML
