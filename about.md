@@ -9,11 +9,6 @@ The Security Benchmark for Salesforce (SBS) was originally authored by [Pablo Go
 SBS has received contributions and review from Salesforce security practitioners, architects, and industry leaders who have helped refine and validate the controls within this benchmark. Contributors include practitioners from various Salesforce security tooling vendors, consulting firms, and enterprise organizations:
 
 - **Pablo Gonzalez** — AutoRABIT 
-- **Sarah Chen** — Senior Security Architect, Enterprise Financial Services
-- **Marcus Williams** — Salesforce MVP and Independent Security Consultant
-- **Dr. Priya Sharma** — CISO, Global Healthcare Solutions
-- **James O'Connor** — Lead Auditor, Cloud Security Partners
-- **Wei Zhang** — Principal Engineer, Security Tooling Vendor
 
 *(Contributor list will be updated as the standard evolves through community feedback and peer review.)*
 
