@@ -6,3 +6,6 @@ node_modules
 .env.local
 .env.development.local
 .env.test.local
+
+# Generated XML file (created on release)
+sbs-controls.xml

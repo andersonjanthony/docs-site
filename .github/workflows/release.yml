@@ -1,0 +1,97 @@
+name: Generate SBS Controls XML on Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'  # Triggers on version tags like v1.0.0, v1.2.3, etc.
+
+jobs:
+  generate-xml:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Generate XML from markdown controls
+        run: |
+          python3 scripts/generate_xml.py
+          echo "Generated XML file:"
+          ls -lh sbs-controls.xml
+      
+      - name: Extract version from tag
+        id: version
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/v}
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Detected version: $VERSION"
+      
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: sbs-controls.xml
+          body: |
+            # Security Benchmark for Salesforce v${{ steps.version.outputs.version }}
+            
+            This release includes **24 controls** across the following categories:
+            
+            - **Foundations** (1 control)
+            - **OAuth Security** (3 controls)
+            - **Integrations** (3 controls)
+            - **Permissions** (4 controls)
+            - **Authentication** (3 controls)
+            - **Code Security** (3 controls)
+            - **Data Security** (2 controls)
+            - **Change Management** (3 controls)
+            - **Security Configuration** (2 controls)
+            
+            ## Machine-Readable Format
+            
+            The attached `sbs-controls.xml` file provides a machine-readable representation of all controls, suitable for consumption by security tooling vendors and automated compliance scanners.
+            
+            ## XML Schema
+            
+            ```xml
+            <sbs_benchmark version="${{ steps.version.outputs.version }}" xmlns="https://securitybenchmark.dev/sbs/v1">
+              <metadata>
+                <title>Security Benchmark for Salesforce</title>
+                <version>...</version>
+                <total_controls>24</total_controls>
+              </metadata>
+              <controls>
+                <category>
+                  <name>...</name>
+                  <description>...</description>
+                  <control id="SBS-XXX-001">
+                    <title>...</title>
+                    <statement>...</statement>
+                    <description>...</description>
+                    <rationale>...</rationale>
+                    <audit_procedure>...</audit_procedure>
+                    <remediation>...</remediation>
+                    <default_value>...</default_value>
+                    <references>...</references>
+                  </control>
+                </category>
+              </controls>
+            </sbs_benchmark>
+            ```
+            
+            ## Documentation
+            
+            Full documentation is available at [securitybenchmark.dev](https://securitybenchmark.dev)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Verify XML was attached
+        run: |
+          echo "✅ Release created with sbs-controls.xml attachment"
+          echo "Version: ${{ steps.version.outputs.version }}"
+

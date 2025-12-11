@@ -1,0 +1,92 @@
+# SBS Control Generation Scripts
+
+This directory contains scripts for generating machine-readable representations of SBS controls.
+
+## generate_xml.py
+
+Parses all markdown control files in the `benchmark/` directory and generates a single XML file containing all controls in a structured, machine-readable format.
+
+### Usage
+
+```bash
+# From the project root
+python3 scripts/generate_xml.py
+```
+
+This will generate `sbs-controls.xml` in the project root.
+
+### Output Format
+
+The script generates an XML file with the following structure:
+
+```xml
+<sbs_benchmark version="1.0.0" xmlns="https://securitybenchmark.dev/sbs/v1">
+  <metadata>
+    <title>Security Benchmark for Salesforce</title>
+    <version>1.0.0</version>
+    <total_controls>24</total_controls>
+  </metadata>
+  <controls>
+    <category>
+      <name>OAuth Security</name>
+      <description>...</description>
+      <control id="SBS-OAUTH-001">
+        <title>...</title>
+        <statement>...</statement>
+        <description>...</description>
+        <rationale>...</rationale>
+        <audit_procedure>...</audit_procedure>
+        <remediation>...</remediation>
+        <default_value>...</default_value>
+        <references>...</references>
+      </control>
+      <!-- more controls -->
+    </category>
+    <!-- more categories -->
+  </controls>
+</sbs_benchmark>
+```
+
+### Automated Generation
+
+The XML file is automatically generated when a new version tag is pushed to GitHub:
+
+```bash
+# Create and push a version tag
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+The GitHub Action (`.github/workflows/release.yml`) will:
+1. Run the script to generate the XML
+2. Create a GitHub Release
+3. Attach the XML file to the release
+
+### For Tooling Vendors
+
+Security tooling vendors can consume the XML file directly from GitHub releases:
+
+```
+https://github.com/yourusername/sbs/releases/download/v1.0.0/sbs-controls.xml
+```
+
+Each control includes all necessary information:
+- **Control ID**: Unique identifier (e.g., `SBS-OAUTH-001`)
+- **Title**: Short control name
+- **Statement**: One-sentence requirement
+- **Description**: Detailed explanation
+- **Rationale**: Why this control exists
+- **Audit Procedure**: Step-by-step verification process
+- **Remediation**: How to fix noncompliance
+- **Default Value**: Salesforce's default behavior
+- **References**: Standards and documentation links
+
+### Development Workflow
+
+1. Edit markdown files in `benchmark/`
+2. Test XML generation locally: `python3 scripts/generate_xml.py`
+3. Verify output looks correct: `cat sbs-controls.xml`
+4. Commit markdown changes (XML is gitignored)
+5. When ready to release, create a version tag
+6. GitHub Action automatically generates and publishes XML
+
