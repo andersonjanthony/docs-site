@@ -2,7 +2,9 @@
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build",
-    "preview": "vitepress preview"
+    "preview": "vitepress preview",
+    "generate-xml": "python3 scripts/generate_xml.py",
+    "release": "bash scripts/release.sh"
   },
   "dependencies": {
     "vitepress": "^1.6.3"
