@@ -80,7 +80,6 @@ jobs:
                     <audit_procedure>...</audit_procedure>
                     <remediation>...</remediation>
                     <default_value>...</default_value>
-                    <references>...</references>
                   </control>
                 </category>
               </controls>
