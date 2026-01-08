@@ -45,7 +45,7 @@ remediation:
   entity_type: ConnectedApp
 
 task:
-  title_template: "Formally install Connected App: {{entity.name}}"
+  title_template: "Formally install Connected App: (use double curly braces around entity.name)"
 ```
 
 This produces entity-level remediation where compliance tools generate one task per Connected App that isn't formally installed.
@@ -67,10 +67,10 @@ This produces one task to create and maintain a system of record for tracking Co
 
 ## Task Title Templates
 
-Task titles use mustache-style template syntax:
+Task titles use mustache-style template syntax (double curly braces):
 
-- `{{entity.name}}` - The name of the noncompliant entity
-- `{{entity.id}}` - The ID of the noncompliant entity (if applicable)
+- Use `entity.name` wrapped in double curly braces - The name of the noncompliant entity
+- Use `entity.id` wrapped in double curly braces - The ID of the noncompliant entity (if applicable)
 
 Task titles must be self-contained, deterministic, and human-readable.
 

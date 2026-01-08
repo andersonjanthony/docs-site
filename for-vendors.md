@@ -111,7 +111,7 @@ Controls that include remediation metadata will have a `<remediation_scope>` blo
 
 ### Task Title Templates
 
-The `<task>` block contains a `<title_template>` that vendors should use to generate tasks. Templates use mustache-style syntax (e.g., `{{entity.name}}`) to insert dynamic values for entity-scoped controls.
+The `<task>` block contains a `<title_template>` that vendors should use to generate tasks. Templates use mustache-style syntax (e.g., double curly braces around `entity.name`) to insert dynamic values for entity-scoped controls.
 
 **Why this matters:**
 

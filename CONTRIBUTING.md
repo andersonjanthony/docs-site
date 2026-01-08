@@ -92,28 +92,28 @@ task:
 
 **Remediation scopes (choose one):**
 
-- **`org`** — One org-level configuration change (e.g., enable setting, configure policy)
-- **`entity`** — One task per noncompliant entity (e.g., per Connected App, per Profile)
-- **`mechanism`** — Implement tooling or automated process (e.g., build scanner, deploy monitoring)
-- **`inventory`** — Establish and maintain system of record (e.g., document approved users, track criticality ratings)
+- **org** — One org-level configuration change (e.g., enable setting, configure policy)
+- **entity** — One task per noncompliant entity (e.g., per Connected App, per Profile)
+- **mechanism** — Implement tooling or automated process (e.g., build scanner, deploy monitoring)
+- **inventory** — Establish and maintain system of record (e.g., document approved users, track criticality ratings)
 
 **Choosing the right scope:**
 
-- If the control requires flipping switches or changing org settings → `org`
-- If the control requires fixing each item individually → `entity` (and specify `entity_type`)
-- If the control requires building custom tooling or automation → `mechanism`
-- If the control requires maintaining external documentation/tracking → `inventory`
+- If the control requires flipping switches or changing org settings → org
+- If the control requires fixing each item individually → entity (and specify entity_type)
+- If the control requires building custom tooling or automation → mechanism
+- If the control requires maintaining external documentation/tracking → inventory
 
 **Task title templates:**
 
 - Must be clear, actionable, and deterministic
-- For `entity` scope: Use `{{entity.name}}` or `{{entity.id}}` for dynamic values
+- For entity scope: Use mustache-style templates with double curly braces around variable names (like `entity.name` or `entity.id`) for dynamic values
 - For other scopes: Use static, descriptive titles
 - Examples:
-  - `org`: "Implement SSO enforcement for production users"
-  - `entity`: "Formally install Connected App: {{entity.name}}"`
-  - `mechanism`: "Implement regulated data detection for Long Text Area fields"
-  - `inventory`: "Establish and maintain SSO bypass user inventory"
+  - org: "Implement SSO enforcement for production users"
+  - entity: See the entity example in control-metadata/SBS-OAUTH-001.yaml
+  - mechanism: "Implement regulated data detection for Long Text Area fields"
+  - inventory: "Establish and maintain SSO bypass user inventory"
 
 **Important:** Each control must map to exactly **one** remediation scope. If a control seems to require multiple scopes or multiple actions, it should be split into multiple controls.
 
