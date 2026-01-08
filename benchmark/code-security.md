@@ -25,10 +25,6 @@ Mandatory peer review prevents insecure or flawed code from entering the deploym
 **Default Value:**  
 Salesforce does not enforce code review requirements; these controls depend on the organization's source control configuration.
 
-**References:**  
-- OWASP Code Review Guide  
-- NIST SP 800-53: SA-11 Developer Testing and Evaluation
-
 ### SBS-CODE-002: Pre-Merge Static Code Analysis for Apex and LWC
 
 **Control Statement:** Static code analysis with security checks for Apex and Lightning Web Components must execute successfully before any code change is merged into a production-bound branch.
@@ -52,11 +48,6 @@ Requiring static analysis before merge ensures that security issues are identifi
 
 **Default Value:**  
 Salesforce does not provide or enforce static code analysis; organizations must implement external SAST tooling.
-
-**References:**  
-- OWASP ASVS: Section 1.11 Secure Development Practices  
-- NIST SP 800-53: SA-11 Developer Testing and Evaluation  
-- Salesforce Developer Guide: Apex Security Best Practices
 
 ### SBS-CODE-003: Implement Persistent Apex Application Logging
 
@@ -83,7 +74,3 @@ Salesforce debug logs are transient, size-limited, and often truncated, preventi
 **Default Value:**  
 Salesforce does not provide persistent application-level logging by default; debug logs are transient, size-limited, and automatically purged.
 
-**References:**  
-- Salesforce Developer Guide: Apex Logging and Debugging  
-- OWASP Application Logging Guidelines  
-- NIST SP 800-92: Guide to Computer Security Log Management

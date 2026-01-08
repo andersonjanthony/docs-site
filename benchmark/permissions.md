@@ -36,12 +36,6 @@ A defined and enforced permission set model provides consistent, least-privilege
 **Default Value:**  
 Salesforce does not enforce any specific permission set model. Profiles, permission sets, and permission set groups can be created without structure or alignment unless governed by the organization.
 
-**References:**  
-- Salesforce Authorization Basics  
-- Salesforce Permission Set and Permission Set Group Documentation  
-- NIST SP 800-53 AC-2 (Account Management), AC-6 (Least Privilege)  
-- CIS Controls v8 — Control 6: Access Control Management
-
 ### SBS-PERM-002: Documented Justification for All API-Enabled Authorizations
 
 **Control Statement:** Every authorization granting the "API Enabled" permission must have documented business or technical justification recorded in a system of record.
@@ -68,12 +62,6 @@ The “API Enabled” permission allows users to authenticate to and interact wi
 
 **Default Value:**  
 Salesforce does not require or maintain a system of record for API-enabled authorizations. The “API Enabled” permission is disabled by default for standard profiles but may be granted by administrators.
-
-**References:**  
-- Salesforce: User Permissions and Access Documentation  
-- NIST SP 800-53: AC-2 (Account Management), AC-6 (Least Privilege)  
-- CIS Critical Security Controls: CSC 5 (Account Management)  
-- OWASP ASVS: V2 Access Control Requirements
 
 ### SBS-PERM-003: Documented Justification for Approve Uninstalled Connected Apps Permission
 
@@ -106,13 +94,6 @@ The "Approve Uninstalled Connected Apps" permission allows users to self-authori
 **Default Value:**  
 The "Approve Uninstalled Connected Apps" permission is not granted by default in Salesforce. This permission was introduced in September 2025 as part of Connected App Usage Restrictions changes. Organizations must explicitly assign this permission to users who require it for legitimate testing or integration management purposes.
 
-**References:**  
-- Salesforce: Connected App Usage Restrictions Change Documentation  
-- Salesforce: User Permissions and Access Documentation  
-- NIST SP 800-53: AC-2 (Account Management), AC-6 (Least Privilege)  
-- CIS Critical Security Controls: CSC 5 (Account Management)  
-- OWASP ASVS: V2 Access Control Requirements
-
 ### SBS-PERM-004: Documented Justification for All Super Admin–Equivalent Users
 
 **Control Statement:** All users with simultaneous View All Data, Modify All Data, and Manage Users permissions must be documented in a system of record with clear business or technical justification.
@@ -142,8 +123,3 @@ Super Admin–equivalent permissions grant unrestricted read and write access ac
 
 **Default Value:**  
 Salesforce does not limit the number of users who may receive **View All Data**, **Modify All Data**, or **Manage Users**, and does not maintain any system of record regarding administrative access.
-
-**References:**  
-- NIST SP 800-53: AC-2 (Account Management), AC-6 (Least Privilege)  
-- CIS Controls: CSC 5 (Account Management), CSC 4 (Access Control Management)  
-- Salesforce: User Permissions and Access Documentation

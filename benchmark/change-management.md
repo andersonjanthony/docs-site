@@ -27,11 +27,6 @@ A designated deployment identity establishes provenance, prevents impersonation,
 **Default Value:**  
 Salesforce does not create or enforce a dedicated deployment identity by default.
 
-**References:**  
-- Salesforce Deployment Status  
-- Salesforce Metadata API  
-- NIST SP 800-53 CM-5: Access Restrictions for Change
-
 ### SBS-CHG-002: Establish and Maintain a List of High-Risk Metadata Types Prohibited from Direct Production Editing
 
 **Control Statement:** Salesforce production orgs must maintain an explicit list of high-risk metadata types that must never be edited directly in production by human users, defaulting at minimum to the SBS baseline list while allowing organizations to extend or refine it as needed.
@@ -57,9 +52,6 @@ High-risk metadata types directly impact application integrity, authentication, 
 **Default Value:**  
 Salesforce does not provide native restrictions or guidance preventing direct production edits to high-risk metadata.
 
-**References:**  
-- Salesforce Metadata API Coverage Report  
-- NIST SP 800-128: Guide for Security-Focused Configuration Management
 
 ### SBS-CHG-003: Monitor and Alert on Unauthorized Modifications to High-Risk Metadata
 
@@ -95,7 +87,3 @@ Monitoring for unauthorized direct-in-production changes preserves deployment pr
 **Default Value:**  
 Salesforce does not provide built-in monitoring or alerting for unauthorized direct-in-production metadata changes; organizations must implement their own processes.
 
-**References:**  
-- Salesforce Setup Audit Trail  
-- Salesforce Tooling API / Metadata API  
-- NIST SP 800-53 SI-4: System Monitoring  

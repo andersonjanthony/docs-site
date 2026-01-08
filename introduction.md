@@ -39,7 +39,6 @@ Each SBS control is written in a **prescriptive, binary format** designed to det
 - **Audit Procedure** — Steps to evaluate whether the requirement is met.  
 - **Remediation** — Actions needed to bring the environment into compliance.  
 - **Default Value** — Salesforce’s default behavior relevant to this control.  
-- **References** — External standards or Salesforce documentation supporting the requirement.
 
 **Interpretation:**  
 - If a control’s requirement is not satisfied, the environment is **noncompliant** with SBS.  
@@ -54,7 +53,7 @@ SBS uses a three-part version number: **MAJOR.MINOR.REVISION**
 
 **MAJOR** — Increased when controls are added, removed, renumbered, recategorized, or when a control's requirement meaningfully changes. These are breaking changes that may affect compliance status.
 
-**MINOR** — Increased when supporting text (description, audit steps, remediation, rationale, references) changes without altering the control requirement. Organizations remain compliant, but implementation guidance has improved.
+**MINOR** — Increased when supporting text (description, audit steps, remediation, rationale) changes without altering the control requirement. Organizations remain compliant, but implementation guidance has improved.
 
 **REVISION** — Increased for purely editorial updates such as typos, formatting, or link fixes. No substantive changes to controls or guidance.
 

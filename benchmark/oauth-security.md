@@ -27,11 +27,6 @@ Implicitly created OAuth connections inherit configuration from the external app
 **Default Value:**  
 When a user first authenticates to a connected app via OAuth, Salesforce automatically creates a user-authorized OAuth entry that is not formally installed and is not governed by profiles or permission sets.
 
-**References:**  
-- Salesforce Connected App Documentation  
-- OAuth 2.0 Security Best Current Practice (IETF)  
-- NIST SP 800-204A: Building Secure Microservices-Based Applications Using OAuth 2.0
-
 ### SBS-OAUTH-002: Inventory and Criticality Classification of OAuth-Enabled Connected Apps
 
 **Control Statement:** All OAuth-enabled Connected Apps must be recorded in an authoritative system of record and assigned a documented vendor criticality rating reflecting integration importance and data sensitivity.
@@ -56,11 +51,6 @@ Without a complete inventory and criticality classification, organizations canno
 
 **Default Value:**  
 Salesforce does not automatically maintain or enforce an external inventory or criticality classification for Connected Apps.
-
-**References:**  
-- Salesforce Help: Connected Apps and OAuth  
-- NIST SP 800-53: SA-9 External Information System Services  
-- CIS Controls v8: Control 15 – Service Provider Management
 
 ### SBS-OAUTH-003: Due Diligence Documentation for High-Risk Connected App Vendors
 
@@ -89,8 +79,3 @@ High-risk vendors introduce elevated exposure to sensitive data and business pro
 
 **Default Value:**  
 Salesforce does not manage or enforce vendor due diligence requirements for Connected App providers.
-
-**References:**  
-- NIST SP 800-53: SA-12 Supply Chain Protection  
-- CIS Controls v8: Control 15 – Service Provider Management  
-- OWASP ASVS: Section 1.5 Vendor Security Documentation

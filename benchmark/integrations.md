@@ -27,11 +27,6 @@ Browser extensions can harvest session tokens, exfiltrate data, and execute unau
 **Default Value:**  
 Salesforce provides no mechanism to prevent or detect browser extension usage; unmanaged browser extensions are permitted by default, including those capable of accessing Salesforce data and authenticated sessions.
 
-**References:**  
-- Google Chrome Enterprise Policy Documentation  
-- NIST SP 800-53: SI-4 Information System Monitoring  
-- OWASP: Web Application Security Risks Related to Browser Extensions
-
 ### SBS-INT-002: Inventory and Justification of Remote Site Settings
 
 **Control Statement:** Organizations must maintain an authoritative inventory of all Remote Site Settings and document a business justification for each endpoint approved for Apex HTTP callouts.
@@ -57,11 +52,6 @@ Remote Site Settings authorize outbound communication from Salesforce to externa
 
 **Default Value:**  
 Salesforce does not require or maintain business justification for Remote Site Settings and does not enforce an external inventory.
-
-**References:**  
-- Salesforce Developer Guide: Apex Callouts and Remote Site Settings  
-- NIST SP 800-53: AC-4 Information Flow Enforcement  
-- CIS Controls v8: Control 12 – Network Infrastructure Management
 
 ### SBS-INT-003: Inventory and Justification of Named Credentials
 
@@ -91,8 +81,3 @@ Named Credentials control authenticated outbound communication from Salesforce t
 
 **Default Value:**  
 Salesforce does not maintain or enforce an external inventory or business justification for Named Credentials.
-
-**References:**  
-- Salesforce Developer Guide: Named Credentials  
-- NIST SP 800-53: AC-4 Information Flow Enforcement  
-- CIS Controls v8: Control 12 – Network Infrastructure Management

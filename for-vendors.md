@@ -41,8 +41,6 @@ The XML file follows a predictable structure:
         <remediation>1. Formally install any connected app...
 2. Configure the installed connected app's policies...</remediation>
         <default_value>When a user first authenticates to a connected app...</default_value>
-        <references>- Salesforce Connected App Documentation
-- OAuth 2.0 Security Best Current Practice (IETF)...</references>
       </control>
     </category>
   </controls>
@@ -122,9 +120,6 @@ Here's a complete control as it appears in the XML:
 2. For any authorization that legitimately requires API access, add or update the rationale
 3. Reconcile and update the system of record</remediation>
   <default_value>Salesforce does not require or maintain a system of record for API-enabled authorizations. The "API Enabled" permission is disabled by default for standard profiles.</default_value>
-  <references>- Salesforce: User Permissions and Access Documentation
-- NIST SP 800-53: AC-2 (Account Management), AC-6 (Least Privilege)
-- CIS Critical Security Controls: CSC 5 (Account Management)</references>
 </control>
 ```
 

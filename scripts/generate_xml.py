@@ -67,12 +67,6 @@ def parse_control_from_lines(lines, start_idx):
             current_field = 'default_value'
             current_content = [line.replace('**Default Value:**', '').strip()]
             
-        elif line.startswith('**References:**'):
-            if current_field and current_content:
-                control[current_field] = '\n'.join(current_content).strip()
-            current_field = 'references'
-            current_content = [line.replace('**References:**', '').strip()]
-            
         # Accumulate content for current field
         elif current_field and line.strip():
             current_content.append(line)
@@ -167,7 +161,6 @@ def generate_xml(controls, version="1.0.0"):
             create_xml_element(control_elem, 'audit_procedure', control.get('audit_procedure', ''))
             create_xml_element(control_elem, 'remediation', control.get('remediation', ''))
             create_xml_element(control_elem, 'default_value', control.get('default_value', ''))
-            create_xml_element(control_elem, 'references', control.get('references', ''))
     
     return root
 

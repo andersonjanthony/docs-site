@@ -28,7 +28,3 @@ A formally maintained system of record is foundational for ensuring repeatable, 
 
 **Default Value:**  
 Salesforce does not provide or require a system of record for documenting security-relevant metadata, exceptions, or justifications.
-
-**References:**  
-- NIST SP 800-53: PM-5 (Information System Inventory), PL-2 (System Security and Privacy Plans)  
-- CIS Controls: CSC 2 (Inventory and Control of Software Assets), CSC 5 (Account Management)

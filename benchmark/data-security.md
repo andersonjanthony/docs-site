@@ -29,12 +29,6 @@ LTA fields often contain unstructured, user-entered information that may include
 **Default Value:**  
 Salesforce does not natively scan the contents of Long Text Area fields for regulated data.
 
-**References:**  
-- NIST SP 800-53: RA-5, SI-4  
-- GDPR Articles 5 and 30  
-- HIPAA §164.308(a)(1)(ii)(A)  
-- CIS Controls v8: Control 3
-
 ### SBS-DATA-002: Maintain an Inventory of Long Text Area Fields Containing Regulated Data
 
 **Control Statement:** The organization must maintain an up-to-date inventory of all Long Text Area fields that are known or detected to contain regulated or personal data.
@@ -60,8 +54,3 @@ Without a current inventory of fields containing regulated data, an organization
 
 **Default Value:**  
 Salesforce does not maintain or provide an inventory of Long Text Area fields containing regulated data.
-
-**References:**  
-- NIST SP 800-53: PM-5, PL-8  
-- GDPR Article 30  
-- CIS Controls v8: Control 3

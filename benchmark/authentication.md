@@ -28,12 +28,6 @@ Enforcing SSO for standard users prevents password-based authentication, central
 **Default Value:**  
 By default, Salesforce does not enable “Disable login with Salesforce credentials,” and users are not assigned the “Is Single Sign-On Enabled” permission.
 
-**References:**  
-- Salesforce Help: Single Sign-On Settings  
-- Salesforce Metadata API: SingleSignOnSettings  
-- NIST SP 800-63: Digital Identity Guidelines  
-
-
 ### SBS-AUTH-002: Govern and Document All Users Permitted to Bypass Single Sign-On
 
 **Control Statement:** All users who do not have the “Is Single Sign-On Enabled” permission must be explicitly authorized, documented in a system of record, and limited to approved administrative or break-glass use cases.
@@ -59,11 +53,6 @@ Users who bypass SSO pose elevated authentication risk; maintaining formal gover
 
 **Default Value:**  
 Salesforce allows all users to authenticate with Salesforce credentials unless the “Is Single Sign-On Enabled” permission is assigned and the org-level setting disabling local login is enabled.
-
-**References:**  
-- Salesforce Help: Single Sign-On Settings  
-- Salesforce Metadata API: SingleSignOnSettings  
-- CIS Controls v8: Access Control Mechanisms
 
 ### SBS-AUTH-003: Prohibit Broad or Unrestricted Profile Login IP Ranges
 
@@ -93,7 +82,3 @@ Overly broad login IP ranges allow users to authenticate from anywhere, bypassin
 **Default Value:**  
 Salesforce profiles do not include login IP ranges by default; they must be explicitly configured.
 
-**References:**  
-- Salesforce Help: Profile Login IP Ranges  
-- NIST SP 800-53 AC-19: Access Control for Remote Access  
-- OWASP ASVS: V2 Authentication and Session Management  

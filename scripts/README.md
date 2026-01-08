@@ -38,7 +38,6 @@ The script generates an XML file with the following structure:
         <audit_procedure>...</audit_procedure>
         <remediation>...</remediation>
         <default_value>...</default_value>
-        <references>...</references>
       </control>
       <!-- more controls -->
     </category>
@@ -88,7 +87,6 @@ Each control includes all necessary information:
 - **Audit Procedure**: Step-by-step verification process
 - **Remediation**: How to fix noncompliance
 - **Default Value**: Salesforce's default behavior
-- **References**: Standards and documentation links
 
 ### Development Workflow
 

@@ -27,11 +27,6 @@ A defined Health Check baseline establishes a clear, intentional configuration p
 **Default Value:**  
 Salesforce provides a default baseline but does not require organizations to review, customize, or maintain it.
 
-**References:**  
-- Salesforce Help: Health Check  
-- Salesforce Baseline XML Format  
-- NIST SP 800-128: Configuration Management
-
 ### SBS-SECCONF-002: Review and Remediate Salesforce Health Check Deviations
 
 **Control Statement:** Salesforce production orgs must periodically review Health Check results against the defined baseline and remediate deviations or formally document approved exceptions.
@@ -67,8 +62,3 @@ Regular review and remediation of Health Check deviations ensures the organizati
 
 **Default Value:**  
 Salesforce does not require or track periodic Health Check reviews; deviations may persist indefinitely without administrative action.
-
-**References:**  
-- Salesforce Help: Health Check  
-- Salesforce Security Baseline Templates  
-- NIST SP 800-128: Configuration Management

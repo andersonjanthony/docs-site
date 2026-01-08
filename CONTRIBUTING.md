@@ -21,7 +21,6 @@ You can submit improvements to existing controls, including:
 - Clarifying control language
 - Enhancing audit procedures
 - Adding remediation steps
-- Updating references
 - Fixing technical inaccuracies
 
 ### 3. Report Issues
@@ -73,10 +72,6 @@ Why this control exists and what risk it mitigates.
 **Default Value:**  
 Salesforce's out-of-the-box behavior related to this control.
 
-**References:**  
-- Relevant Salesforce documentation
-- Industry standards (NIST, CIS, OWASP, etc.)
-- Compliance frameworks (GDPR, HIPAA, etc.)
 ```
 
 **For existing control changes:**
@@ -136,7 +131,6 @@ All controls must meet these standards:
 - Clear rationale explaining the security benefit
 - Detailed audit procedures that an auditor can follow
 - Specific remediation steps
-- References to authoritative sources
 
 ### Writing Style
 
