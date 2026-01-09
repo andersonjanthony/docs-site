@@ -87,3 +87,21 @@ Monitoring for unauthorized direct-in-production changes preserves deployment pr
 **Default Value:**  
 Salesforce does not provide built-in monitoring or alerting for unauthorized direct-in-production metadata changes; organizations must implement their own processes.
 
+### SBS-CHG-004: Establish Continuous Integration (CI)
+
+**Control Statement:** Meaningful changes to production orgs must be deployed by a source-driven, auditable, automated, and repeatable process.
+
+**Description:**  
+Organizations must introduce a source-driven development and deployment process that allows reliable deployments to production. The process must be repeatable.
+
+**Rationale:**  
+Without adequate version control, it is almost impossible to recover in case of failure. 
+
+**Audit Procedure:**  
+
+
+**Remediation:**  
+
+
+**Default Value:**  
+Salesforce allows changes of most metadata types on production by default.
