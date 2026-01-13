@@ -29,6 +29,9 @@ Organizations must maintain an authoritative inventory of all Remote Site Settin
 **SBS-INT-003: Inventory and Justification of Named Credentials**  
 Organizations must maintain an authoritative inventory of all Named Credentials and document a business justification for each external endpoint and authentication configuration approved for use in Salesforce.
 
+**SBS-INT-004: Retain API Total Usage Event Logs for 30 Days**  
+The organization must retain API Total Usage event log data (EventLogFile EventType=ApiTotalUsage) for at least the immediately preceding 30 days using Salesforce-native retention or automated external export and storage.
+
 ## Permissions
 
 **SBS-PERM-001: Enforce a Documented Permission Set Model**  
@@ -42,6 +45,9 @@ The "Approve Uninstalled Connected Apps" permission must only be assigned to hig
 
 **SBS-PERM-004: Documented Justification for All Super Admin–Equivalent Users**  
 All users with simultaneous View All Data, Modify All Data, and Manage Users permissions must be documented in a system of record with clear business or technical justification.
+
+**SBS-PERM-005: Only Use Custom Profiles for Active Users**  
+All active users must be assigned custom profiles. The out-of-the-box standard profiles must not be used.
 
 ## Authentication
 
@@ -94,5 +100,5 @@ Salesforce production orgs must periodically review Health Check results against
 
 ---
 
-*Total Controls: 24*
+*Total Controls: 26*
 

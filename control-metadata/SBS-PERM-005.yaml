@@ -2,7 +2,7 @@ control_id: SBS-PERM-005
 
 remediation:
   scope: entity
-  entity_type: User
+  entity_type: Profile
 
 task:
-  title_template: "Assign a custom profile to: {{entity.name}}"
+  title_template: "Ensure that {{entity.name}} is not assigned to any users"
