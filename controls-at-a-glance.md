@@ -55,8 +55,7 @@ Organizations must maintain an authoritative inventory of all non-human identiti
 **SBS-PERM-007: Restrict Broad Privileges for Non-Human Identities**
 Non-human identities must not be assigned permissions that bypass sharing rules or grant administrative capabilities unless documented business justification exists.
 
-**SBS-PERM-008: Implement Compensating Controls for Privileged Non-Human Identities**
-Non-human identities with permissions that bypass sharing rules or grant administrative capabilities must have compensating controls implemented to mitigate risk.
+
 
 ## Authentication
 
