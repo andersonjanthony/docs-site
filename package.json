@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "vitepress dev",
+    "start": "vitepress dev",
     "build": "vitepress build",
     "preview": "vitepress preview",
     "generate-xml": "python3 scripts/generate_xml.py",

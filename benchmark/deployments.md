@@ -1,8 +1,8 @@
-## Change Management
+## Deployments
 
 This section defines controls related to metadata deployment practices, configuration change governance, and production environment integrity. These controls ensure that organizations establish clear provenance for production changes, restrict high-risk metadata modifications to controlled deployment processes, and maintain continuous monitoring to detect unauthorized configuration drift.
 
-### SBS-CHG-001: Require a Designated Deployment Identity for Metadata Changes
+### SBS-DEP-001: Require a Designated Deployment Identity for Metadata Changes
 
 **Control Statement:** Salesforce production orgs must designate a single deployment identity that is exclusively used for all metadata deployments and high-risk configuration changes performed through automated or scripted release processes.
 
@@ -27,7 +27,7 @@ A designated deployment identity establishes provenance, prevents impersonation,
 **Default Value:**  
 Salesforce does not create or enforce a dedicated deployment identity by default.
 
-### SBS-CHG-002: Establish and Maintain a List of High-Risk Metadata Types Prohibited from Direct Production Editing
+### SBS-DEP-002: Establish and Maintain a List of High-Risk Metadata Types Prohibited from Direct Production Editing
 
 **Control Statement:** Salesforce production orgs must maintain an explicit list of high-risk metadata types that must never be edited directly in production by human users, defaulting at minimum to the SBS baseline list while allowing organizations to extend or refine it as needed.
 
@@ -53,12 +53,12 @@ High-risk metadata types directly impact application integrity, authentication, 
 Salesforce does not provide native restrictions or guidance preventing direct production edits to high-risk metadata.
 
 
-### SBS-CHG-003: Monitor and Alert on Unauthorized Modifications to High-Risk Metadata
+### SBS-DEP-003: Monitor and Alert on Unauthorized Modifications to High-Risk Metadata
 
 **Control Statement:** Salesforce production orgs must implement a monitoring capability that detects and reports any modification to high-risk metadata performed by a user other than the designated deployment identity.
 
 **Description:**  
-Organizations must maintain a monitoring process—manual or automated—that reviews administrative and metadata changes and identifies when high-risk metadata (as defined in SBS-CHG-002 or extended by the organization) is modified by a human user instead of the designated deployment identity. The monitoring method may use Salesforce APIs, audit logs, export files, CLI tooling, vendor tools, or any combination, provided it reliably detects unauthorized changes within the organization’s defined review interval.
+Organizations must maintain a monitoring process—manual or automated—that reviews administrative and metadata changes and identifies when high-risk metadata (as defined in SBS-DEP-002 or extended by the organization) is modified by a human user instead of the designated deployment identity. The monitoring method may use Salesforce APIs, audit logs, export files, CLI tooling, vendor tools, or any combination, provided it reliably detects unauthorized changes within the organization’s defined review interval.
 
 **Rationale:**  
 Monitoring for unauthorized direct-in-production changes preserves deployment provenance, reduces configuration drift, and ensures timely identification of high-risk modifications that bypass established deployment governance.
@@ -67,7 +67,7 @@ Monitoring for unauthorized direct-in-production changes preserves deployment pr
 1. Interview system owners to identify the monitoring method(s) used for detecting changes to high-risk metadata.  
 2. Review documentation describing how the monitoring process works—whether manual log review, automated scripts, API queries, CLI workflows, scheduled exports, or vendor tools.  
 3. Verify that the monitoring process includes:  
-   - Coverage of all high-risk metadata types defined by the organization and required by SBS-CHG-002.  
+   - Coverage of all high-risk metadata types defined by the organization and required by SBS-DEP-002.  
    - A review interval appropriate to the organization's change-management expectations (e.g., daily, weekly, or aligned with release cycles).  
    - A method for identifying the user who performed each change.  
 4. Examine historical monitoring records or logs to confirm the process has been performed consistently.  
@@ -87,26 +87,29 @@ Monitoring for unauthorized direct-in-production changes preserves deployment pr
 **Default Value:**  
 Salesforce does not provide built-in monitoring or alerting for unauthorized direct-in-production metadata changes; organizations must implement their own processes.
 
-### SBS-CHG-004: Establish Source-Driven Development Process
+### SBS-DEP-004 — Establish Source-Driven Development Process
 
-**Control Statement:** Meaningful changes must be deployed with a source-driven, automated deployment process.
+**Control Statement**  
+Meaningful Salesforce metadata changes must be deployed through a source-driven, automated, and deterministic deployment process, except where the platform does not provide programmatic deployment support.
 
 **Description:**  
-Organizations must track all meaningful changes to metadata in a centralized version control system. The process to deploy those changes must include appropriate validation and testing, and must be automated in a fashion that it is repeatable and deterministic. This control makes no assumptions on the complexity of the org and the need for modularization and general scalability of the deployment process. To be compliant, it is sufficient to keep track of changes in version control and deploy deterministically.
+Organizations must track all meaningful metadata changes in a centralized version control system and deploy them using an automated, repeatable, and deterministic process; manual changes in production are permitted only for metadata types that Salesforce does not expose for programmatic deployment.
 
 **Rationale:**  
-Without adequate version control and automation, it is almost impossible to recover in case of failure. It is one root cause for "configuration drift" (the situation, where sandboxes deviate from production orgs). Version control and automated delivery are fundamental to identify **who** made changes in case of problems.
+A source-driven deployment process is a foundational security control because it creates a verifiable audit trail of configuration changes, enforces accountability for who made changes and when, enables reliable restoration during incidents or outages, and reduces the risk of unauthorized, accidental, or untraceable modifications to security-sensitive settings.
 
 **Audit Procedure:**  
-1. Follow the procedure described in SBS-CHG-001 to enforce a designated deployment identity.
-2. Investigate all processes that propagated changes from development environments to production. 
-3. Flag all processes that did not use a centralized version control.
+1. Identify the organization’s standard deployment process and designated deployment identity as defined in SBS-CHG-001.  
+2. Review recent production metadata changes and their associated deployment records.  
+3. Verify that changes deployable through Salesforce’s programmatic deployment mechanisms originated from centralized version control.  
+4. Confirm that any manual production changes are limited to metadata types that Salesforce does not support for programmatic deployment.  
+5. Flag any manually applied changes that could have been deployed through the source-driven process.
 
 **Remediation:**  
-1. Set up a version control system such as `git`.
-2. Ensure that the version control is centralized and accessible by all developers.
-3. Evaluate if a progressive transistion is necessary (gradually migrate metadata to source-driven process).
-4. Introduce appropriate measures that from now on, all changes are tracked in source.
+1. Establish and maintain a centralized version control repository for Salesforce metadata.  
+2. Implement or enforce an automated deployment pipeline that deploys changes exclusively from version control.  
+3. Restrict direct production changes for metadata types that support programmatic deployment.  
+4. Document and periodically review any required manual production changes for metadata types lacking deployment support.
 
 **Default Value:**  
-Salesforce allows changes of most metadata types on production by default.
+Salesforce allows direct manual changes to most metadata in production and does not require source control or automated deployments by default.
